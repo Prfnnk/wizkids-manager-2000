@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="page" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ body {
   text-align: center;
   color: #fff;
   background-color: #000;
+  height: 100%;
 }
 .button {
   background: none;
@@ -55,5 +58,19 @@ body {
   border-radius: 1rem;
   border: none;
   width: 100%;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 1s, transform 1s;
+}
+.page-enter {
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(-50%);
 }
 </style>
