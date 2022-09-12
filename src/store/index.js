@@ -17,6 +17,7 @@ export default new Vuex.Store({
       state.wizkidsData = content;
     },
     setNewData(state, content) {
+      // add new wizkids
       const newData = state.wizkidsData.map((item, index) => {
         if (content.index === index) {
           return {
@@ -40,6 +41,7 @@ export default new Vuex.Store({
     },
 
     manageWizkid(state, content) {
+      // toggle fired to unfired
       const newData = state.wizkidsData.map((item, index) => {
         if (content.index === index) {
           return {
@@ -61,7 +63,7 @@ export default new Vuex.Store({
           phone: "",
           email: "",
           role: "Developer",
-          id: uuidv4(),
+          id: uuidv4(), // to generate random ids
         },
       ];
 

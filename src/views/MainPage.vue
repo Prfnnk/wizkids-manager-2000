@@ -38,12 +38,15 @@ export default {
   },
   computed: {
     wData() {
+      // mock data from draft.js
       return this.$store.state.wizkidsData;
     },
     isWizkid() {
+      // check for user or guest
       return this.$store.state.isWizkid;
     },
     noWizkids() {
+      // check for users left
       return this.$store.state.wizkidsData.length === 0;
     },
   },

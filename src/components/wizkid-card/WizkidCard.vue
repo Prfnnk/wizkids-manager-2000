@@ -57,7 +57,6 @@
 </template>
 
 <script>
-// import { mapState } from "vuex";
 export default {
   name: "wizkid-card",
   props: {
@@ -117,11 +116,13 @@ export default {
   },
 
   mounted() {
+    // let edit a card when added
     if (this.name === "" && this.email === "" && this.phone === "") this.editMode = true;
   },
 
   methods: {
     editCard() {
+      // to leave already written in the input
       if (!this.editMode) {
         this.editMode = true;
         this.editName = this.name;
@@ -129,6 +130,7 @@ export default {
         this.editEmail = this.email;
         this.editPhone = this.phone;
       } else {
+        // to save written
         this.editMode = false;
         this.$store.dispatch("setNewData", {
           index: this.index,

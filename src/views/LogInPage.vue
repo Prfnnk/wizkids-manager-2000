@@ -12,14 +12,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "log-in-page",
-  // components: {
-  //   HelloWorld,
-  // },
   data() {
     return {
       user: "wizkid",
@@ -34,6 +28,7 @@ export default {
   },
   methods: {
     logIn() {
+      // check for mock data otherwise won't let you in
       if (this.user === "wizkid" && this.password === "wizkid1") {
         this.$router.push("/");
         this.$store.dispatch("setIsWizkid", true);

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-// import WizkidCard from "./wizkid-card/WizkidCard.vue";
 export default {
   name: "main-page",
   computed: {

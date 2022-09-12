@@ -44,7 +44,6 @@ body {
   &:disabled {
     background: rgba($color: #ffff, $alpha: 0.2);
     cursor: not-allowed;
-    // pointer-events: none;
     border-color: rgba($color: #ffff, $alpha: 0.2);
     color: rgba($color: #ffff, $alpha: 0.2);
   }
