@@ -9,7 +9,7 @@
           <button class="wizkid-card__tool button" @click="deleteCard" :disabled="!isWizkid || isFired">
             Delete 🗑
           </button>
-          <button class="wizkid-card__tool button" @click="manageWizkid(!isFired)" :disabled="!isWizkid">
+          <button class="wizkid-card__tool button" @click="manageWizkid(!isFired)" :disabled="!isWizkid || editMode">
             {{ fireInner }}
           </button>
         </div>
