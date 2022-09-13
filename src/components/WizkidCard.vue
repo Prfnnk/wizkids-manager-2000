@@ -9,7 +9,7 @@
           <button class="wizkid-card__tool button" @click="deleteCard" :disabled="!isWizkid || isFired">
             Delete 🗑
           </button>
-          <button class="wizkid-card__tool button" @click="manageWizkid(!isFired)" :disabled="!isWizkid">
+          <button class="wizkid-card__tool button" @click="manageWizkid(!isFired)" :disabled="!isWizkid || editMode">
             {{ fireInner }}
           </button>
         </div>
@@ -117,7 +117,11 @@ export default {
 
   mounted() {
     // let edit a card when added
-    if (this.name === "" && this.email === "" && this.phone === "") this.editMode = true;
+    if (this.name === "" && this.email === "" && this.phone === "") {
+      this.editMode = true;
+      document.querySelector(".wizkid-card").classList.add("entered");
+      console.log(document.querySelector(".wizkid-card"));
+    }
   },
 
   methods: {
@@ -168,6 +172,12 @@ export default {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: opacity 0.75s cubic-bezier(0.25, 0.45, 0.48, 0.98), transform 0.85s cubic-bezier(0.25, 0.45, 0.48, 0.98);
+
+  &:not(.entered) {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
 
   &__fired-sign {
     display: block;
@@ -176,7 +186,7 @@ export default {
     left: 0;
     width: 24rem;
     height: 15rem;
-    background-image: url("../../assets/fired.png");
+    background-image: url("../assets/fired.png");
     background-size: contain;
     background-repeat: no-repeat;
     pointer-events: none;
